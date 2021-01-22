@@ -1,0 +1,56 @@
+<div class="container" *ngIf="!!publications">
+  <app-navbar title="Publications List" icone="bookmarks"></app-navbar>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <i class="material-icons">assignment</i>
+        </div>
+        <div class="card-content">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class="text-primary">
+                <tr>
+                  <th *ngFor="let display of  displayedColumns">{{display}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let publication of  publications">
+                  <td>{{publication.id}}</td>
+                  <td>{{publication.titre}}</td>
+                  <td>{{publication.date}}</td>
+                  <td>{{publication.type}}</td>
+                  <td><a [href]="publication.link" target="_blank">
+                      <mat-icon>attachment</mat-icon>
+                    </a>
+                  </td>
+                  <td><a [href]="publication.sourcePdf" target="_blank">
+                      <mat-icon>picture_as_pdf</mat-icon>
+                    </a></td>
+                    <td>
+                      <button mat-icon-button (click)="onEdit(publication.id)">
+                          <mat-icon>edit</mat-icon>
+                      </button>
+                      <button mat-icon-button color="warn" (click)="onRemoveAccount(publication.id)">
+                          <mat-icon>delete</mat-icon>
+                      </button>
+                      <button mat-icon-button (click)="onDetail(publication.id)">
+                          <mat-icon>remove_red_eye
+                          </mat-icon>
+                      </button>
+                  </td>
+                </tr>
+              </tbody>
+              <div class="row action-btn">
+                <button *ngIf="isAuthenticated()" md-raised-button type="submit" class="btn btn-rose" (click)="onAdd()">Add New Publication</button>
+            </div>
+
+            </table>
+            <mat-paginator [pageSize]="2" [length]="totalPages" (page)="nextPage($event)"></mat-paginator>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

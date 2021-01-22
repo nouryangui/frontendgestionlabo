@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row" style="margin-top: 30px">
+        <div class="col-md-16">
+            <div class="card-content">
+                <h4 class="card-title">{{key}}
+                </h4>
+                <form [formGroup]="form" *ngIf="!!form" (ngSubmit)="onSubmit()" class="form">
+                    <div class="row">
+                        <mat-form-field color="accent">
+                            <input matInput type="text" placeholder="title" formControlName="title">
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field color="accent">
+                            <input matInput type="date" placeholder="Date" formControlName="date">
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field color="accent">
+                            <input matInput type="text" placeholder="location" formControlName="location">
+                        </mat-form-field>
+                    </div>
+                    <div class="row action-btn">
+                        <button md-raised-button type="submit" class="btn btn-rose">
+                            {{key}}</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>

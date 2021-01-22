@@ -1,0 +1,102 @@
+<div class="row" style="margin-top: 30px">
+    <div class="col-md-8">
+
+        <div class="card-header">
+            <i class="material-icons">group</i>
+        </div>
+        <div class="card-content">
+            <h4 class="card-title">{{key}}
+            </h4>
+            <form [formGroup]="form" *ngIf="!!form" (ngSubmit)="onSubmit()" class="form">
+                <div class="row">
+                    <div class="col-md-4">
+                        <mat-form-field color="accent">
+                            <input matInput type="text" placeholder="Cin" formControlName="cin">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <mat-form-field color="accent">
+                            <input matInput type="text" placeholder="name" formControlName="name">
+                        </mat-form-field>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <mat-form-field color="accent">
+                            <input matInput type="text" placeholder="username" formControlName="username">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <mat-form-field color="accent">
+                            <input matInput type="password" placeholder="password" formControlName="password">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <mat-form-field color="accent">
+                            <input matInput type="text" placeholder="Email" formControlName="email">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <mat-form-field color="accent">
+                            <input matInput type="date" placeholder="Birth Date" formControlName="birthDate">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <mat-form-field color="accent">
+                            <input matInput type="text" placeholder="cv" formControlName="cv">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <mat-form-field color="accent">
+                            <mat-select formControlName="type" placeholder="type">
+                                <mat-option *ngFor="let type of types" [value]="type">
+                                    {{type}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <mat-form-field color="accent" *ngIf="form.get('type').value==='student'">
+                            <input matInput type="date" placeholder="Date Inscription"
+                                formControlName="dateInscription">
+                        </mat-form-field>
+                        <mat-form-field color="accent" *ngIf="form.get('type').value==='teacher'">
+                            <input matInput type="text" placeholder="Etablissement" formControlName="etablissement">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <mat-form-field color="accent" *ngIf="form.get('type').value==='student'">
+                            <input matInput type="text" placeholder="Diplome" formControlName="diplome">
+                        </mat-form-field>
+                        <mat-form-field color="accent" *ngIf="form.get('type').value==='teacher'">
+                            <input matInput type="text" placeholder="Grade" formControlName="grade">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <mat-form-field color="accent" *ngIf="form.get('type').value==='student'">
+                            <mat-select formControlName="teacher" placeholder="teacher">
+                                <mat-option *ngFor="let teacher of teachers" [value]="teacher">
+                                    {{teacher.name}}
+                                </mat-option>
+
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+                </div>
+                
+                <div class="row action-btn">
+                    <button md-raised-button type="submit" class="btn btn-rose">{{key}}</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+

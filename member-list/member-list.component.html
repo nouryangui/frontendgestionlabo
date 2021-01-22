@@ -1,0 +1,56 @@
+<div class="container">
+    <app-navbar title="Members Management" icone=" group"></app-navbar>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="material-icons">assignment</i>
+                </div>
+                <div class="card-content">
+                    <h4 class="card-title">All members</h4>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class="text-primary">
+                                <tr>
+                                    <th *ngFor="let display of  displayedColumns">{{display}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let member of  members">
+                                    <td>{{member.id}}</td>
+                                    <td>{{member.cin}}</td>
+                                    <td>{{member.name}}</td>
+                                    <td>{{member.birthDate}}</td>
+                                    <td>{{member.email}}</td>
+                                    <td> <a [href]="member.cv" target="_blank">
+                                            <mat-icon>picture_as_pdf</mat-icon>
+                                        </a></td>
+                                    <td>
+                                        <button *ngIf="isAuthenticated() &&  isAdmin()" mat-icon-button (click)="onEdit(member.id)">
+                                            <mat-icon>edit</mat-icon>
+                                        </button>
+                                        <button *ngIf="isAuthenticated() &&  isAdmin()" mat-icon-button color="warn" (click)="onRemoveAccount(member.id)">
+                                            <mat-icon>delete</mat-icon>
+                                        </button>
+                                        <button mat-icon-button (click)="onDetail(member.id)">
+                                            <mat-icon>remove_red_eye
+                                            </mat-icon>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <div class="row action-btn">
+                                <button *ngIf="isAuthenticated() &&  isAdmin()" md-raised-button type="submit" class="btn btn-rose" (click)="onAdd()">Add
+                                    New
+                                    Member</button>
+                            </div>
+                        </table>
+                        <mat-paginator [pageSize]="2" [length]="totalPages" (page)="nextPage($event)"></mat-paginator>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

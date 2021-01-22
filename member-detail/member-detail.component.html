@@ -1,0 +1,77 @@
+<div class="col-md-16" >
+    <div class="card right-profile">
+        <div class="profile">
+            <img  src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile" />
+        </div>
+        <h6>student</h6>
+        <h4>{{member.name}}</h4>
+        <div class="h-tab">
+            <div class="tab">
+                <button mat-raised-button class="btn btn-warning btn-round tab-link default-active"
+                    (click)="tabClick($event, 'profile')" >PUBLICATIONS</button>
+                <button mat-raised-button class="btn btn-warning btn-round tab-link"
+                    (click)="tabClick($event, 'settings')">TOOLS</button>
+                <button mat-raised-button class="btn btn-warning btn-round tab-link"
+                    (click)="tabClick($event, 'options')">EVENTS</button>
+            </div>
+            <div id="profile" class="tab-content">
+                <div class="table-responsive" >
+                    <table class="table">
+                        <thead class="text-primary">
+                            <tr>
+                                <th>publication</th>
+                                <th>date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let publication of publications">
+                                <td>{{publication.titre}}</td>
+                                <td>{{publication.date}}</td>
+
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+            <div id="settings" class="tab-content" >
+                <div class="table-responsive" >
+                    <table class="table"  >
+                        <thead class="text-primary">
+                            <tr>
+                                <th>source</th>
+                                <th>date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let tool of tools">
+                                <td>{{tool.source}}</td>
+                                <td>{{tool.date}}</td>
+
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+            <div id="options" class="tab-content">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class="text-primary">
+                            <tr>
+                                <th>name</th>
+                                <th>date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let event of events">
+                                <td>{{event.title}}</td>
+                                <td>{{event.date}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

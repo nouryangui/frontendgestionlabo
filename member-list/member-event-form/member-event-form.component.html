@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row" style="margin-top: 30px">
+        <div class="col-md-16">
+            <div class="card-content">
+                <h4 class="card-title">{{key}}
+                </h4>
+                <form [formGroup]="form" *ngIf="!!form" (ngSubmit)="onSubmit()" class="form">
+                    <div class="row">
+                        <mat-form-field color="accent">
+                            <mat-select formControlName="member" placeholder="Select Participant">
+                                <mat-option *ngFor="let member of members" [value]="member.id">
+                                    {{member.firstName}} {{member.lastName}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                   <!-- <div class="row">
+                        <mat-form-field color="accent">
+                            <mat-select formControlName="event" placeholder="Select Event">
+                                <mat-option *ngFor="let event of events" [value]="event.id">
+                                    {{event.title}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>-->
+
+                    <div class="row action-btn">
+                        <button md-raised-button type="submit" class="btn btn-rose">{{key}}
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

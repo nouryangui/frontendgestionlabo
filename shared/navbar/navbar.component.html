@@ -1,0 +1,21 @@
+<div class="nav-bar">
+  <div class="left-part">
+    <button mat-mini-fab id="nav-left-button">
+      <mat-icon>{{icone}}</mat-icon>
+    </button>
+    <h4>{{ title }}</h4>
+  </div>
+  <div class="right">
+
+    <a *ngIf="isAuthenticated()" href="/profile" class="nav-link" ><i class="material-icons icon-btn">person</i><p>{{ username }}</a>
+    <a *ngIf="!isAuthenticated()" class="nav-link" routerLink="/login"><i class="material-icons icon-btn">person</i><p>LOGIN</p></a>
+
+    <a *ngIf="isAuthenticated()" (click)="logout()"><i class="material-icons icon-btn">lock_open</i>
+      <p>Logout</p>
+    </a>
+  </div>
+
+  <div id="menu">
+    <button mat-icon-button><i class="material-icons">menu</i></button>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="container">
+
+    <div class="card-content">
+        <h4 class="card-title" >{{key}} </h4>
+        <form [formGroup]="form" *ngIf="!!form" (ngSubmit)="onSubmit()" class="form">
+            <div class="row">
+                <mat-form-field color="accent">
+                    <input matInput type="text" placeholder="title" formControlName="titre">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field color="accent">
+                    <input matInput type="type" placeholder="type" formControlName="type">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field color="accent">
+                    <input matInput type="text" placeholder="link" formControlName="link">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field color="accent">
+                    <input matInput type="date" placeholder="date" formControlName="date">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field color="accent">
+                    <input matInput type="text" placeholder="sourcePdf" formControlName="sourcePdf">
+                </mat-form-field>
+            </div>
+            <div class="row action-btn">
+                <button md-raised-button type="submit" class="btn btn-rose">
+                    {{key}}</button>
+            </div>
+
+        </form>
+    </div>
+</div>

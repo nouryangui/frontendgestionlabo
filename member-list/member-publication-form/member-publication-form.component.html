@@ -1,0 +1,37 @@
+    <div class="col-md-16">
+
+        <div class="card-header">
+            <i class="material-icons">group</i>
+        </div>
+        <div class="card-content">
+            <h4 class="card-title">ADD</h4>
+            <form [formGroup]="form" *ngIf="!!form" (ngSubmit)="onSubmit()" class="form">
+                <div class="row">
+                    <div class="col-md-16">
+                        <mat-form-field color="accent">
+                            <mat-select formControlName="member" placeholder="member">
+                                <mat-option *ngFor="let member of members" [value]="member.id">
+                                    {{member.firstName}} {{member.lastName}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-16">
+                        <mat-form-field color="accent">
+                            <mat-select formControlName="publication" placeholder="publication">
+                                <mat-option *ngFor="let publication of publications" [value]="publication.id">
+                                    {{publication.titre}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row action-btn" class="col-md-8">
+                    <button md-raised-button type="submit" class="btn btn-rose">add</button>
+                </div>
+            </form>
+        </div>
+
+    </div>

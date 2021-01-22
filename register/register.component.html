@@ -1,0 +1,48 @@
+<div class="background"></div>
+<div class="container">
+  <div class="row">
+    <app-header></app-header>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+      <div class="card">
+        <div class="card-header">
+          <h4>Login</h4>
+        </div>
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+          <div class="card-form">
+            <div class="form-row">
+              <i class="material-icons">face</i>
+              <mat-form-field color="accent">
+                <input type="text" matInput placeholder="UserName" name="username" required [(ngModel)]="form.username"
+                  minlength="3" maxlength="20" #username="ngModel" />
+              </mat-form-field>
+            </div>
+            <div class="form-row">
+              <i class="material-icons">email</i>
+              <mat-form-field color="accent">
+                <input type="text" matInput placeholder="email" name="email" required [(ngModel)]="form.email"
+                  #email="ngModel" />
+              </mat-form-field>
+            </div>
+            <div class="form-row">
+              <i class="material-icons">lock</i>
+              <mat-form-field color="accent">
+                <input type="password" matInput placeholder="password" name="password" required
+                  [(ngModel)]="form.password" #password="ngModel" />
+              </mat-form-field>
+            </div>
+
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary btn-block">Sign Up</button>
+          </div>
+          <div class="alert alert-success" *ngIf="isSuccessful">
+            Your registration is successful!
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>

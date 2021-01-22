@@ -1,0 +1,27 @@
+
+  
+  
+  
+  .category{
+    font-weight: 300;
+  }
+  
+  form{
+    margin-top: 30px;
+  }
+  
+ 
+  
+ 
+ 
+  
+  .action-btn{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 15px;
+  }
+  .card-title{
+    text-align: center;
+    font-size: 25px;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;  }
+  
